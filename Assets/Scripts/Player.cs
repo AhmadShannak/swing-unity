@@ -34,6 +34,8 @@ namespace Stick {
         if (currentFuel > maxFuel / 3) {
           canUseFuel = true;
         }
+      } else {
+        currentFuel = maxFuel;
       }
     }
   }
