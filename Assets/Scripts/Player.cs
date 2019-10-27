@@ -6,8 +6,12 @@ namespace Stick {
   public class Player : MonoBehaviour {
     [SerializeField]
     float maxFuel = 15;
+    [SerializeField]
+    Web web;
+
     float currentFuel;
 
+ 
     bool canUseFuel = true;
     public bool CanUseFuel {
       get { return canUseFuel; }
@@ -15,6 +19,7 @@ namespace Stick {
 
     void Awake() {
       currentFuel = maxFuel;
+      web.SetWeb(WebHelper.NORMAL_WEB);
     }
 
     public void UseFuel() {
@@ -37,6 +42,10 @@ namespace Stick {
       } else {
         currentFuel = maxFuel;
       }
+    }
+
+    public void ShootWeb(Vector2 startPos, Vector2 endPos) {
+      web.ShootWeb(startPos, endPos);
     }
   }
 }
