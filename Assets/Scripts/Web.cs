@@ -10,9 +10,8 @@ namespace Stick {
 
     public void SetWeb(WebProperties webProperties) {
       this.webProperties = webProperties;
-      Debug.Log(webProperties.materialPath);
       lineRenderer = this.GetComponent<LineRenderer>();
-      lineRenderer.material = Resources.Load<Material>(webProperties.materialPath);
+      lineRenderer.material = webProperties.webMaterial;
     }
 
     public void ShootWeb(Vector3 startPos,  Vector3 endPos) {

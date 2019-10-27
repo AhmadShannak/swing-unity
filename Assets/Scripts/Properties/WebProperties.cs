@@ -6,12 +6,12 @@ namespace Stick {
   public class WebProperties  {
 #region Properties
     public int webLength;
-    public string materialPath;
+    public Material webMaterial;
 #endregion
 
     /// <summary>Use this constructor to create a new type of webs.</summary>
-    public WebProperties(string path, int length) {
-      this.materialPath = $"WebMaterials/{path}";
+    public WebProperties(string materialPath, int length) {
+      webMaterial = Resources.Load<Material>($"WebMaterials/{materialPath}");
       webLength = length;
     }
   }
