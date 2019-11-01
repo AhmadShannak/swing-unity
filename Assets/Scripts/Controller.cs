@@ -12,12 +12,17 @@ namespace Stick {
     Vector3 mousePos;
 
     void Update() {
-      if (Input.GetMouseButton(0)) {
+      HandleInput();
+    }
+
+    void HandleInput() {
+      if (Input.GetMouseButtonDown(0)) {
         player.UseFuel();
-        SetPointer();
       } else {
         player.ChargeFuel();
-        ResetPointer();
+        if (Input.GetMouseButtonUp(0)) {
+          player.ShootWeb(UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
       }
     }
 

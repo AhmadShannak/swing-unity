@@ -44,8 +44,14 @@ namespace Stick {
       }
     }
 
-    public void ShootWeb(Vector2 startPos, Vector2 endPos) {
-      web.ShootWeb(startPos, endPos);
+    public void ShootWeb(Vector2 endPos) {
+      web.ShootWeb(this.transform.position, CalculateWebDirection(endPos));
+    }
+
+    private Vector2 CalculateWebDirection(Vector2 endPos) {
+      float x = endPos.x >= 0 ? web.webProperties.webLength : -web.webProperties.webLength;
+      float y = endPos.y >= 0 ? web.webProperties.webLength : -web.webProperties.webLength;
+      return new Vector2(this.transform.position.x + x, this.transform.position.y + y);
     }
   }
 }
