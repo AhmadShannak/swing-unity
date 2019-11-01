@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Stick {
   public class Web : MonoBehaviour {
-    private WebProperties webProperties;
+    public WebProperties webProperties;
     LineRenderer lineRenderer;
 
 
